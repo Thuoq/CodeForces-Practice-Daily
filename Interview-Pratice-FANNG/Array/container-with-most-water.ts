@@ -39,5 +39,5 @@ function goodSolution(numbers: number[]): number {
     return maxArea
 }
 
-// Two pointer
+// Two pointer strategies
 console.log(goodSolution([1, 4, 5, 9]))
