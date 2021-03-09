@@ -55,33 +55,16 @@ class Graph {
 
 // Init Graph
 const myGraph = new Graph();
-const list_words: string[] = fs.readFileSync('../sgb-words-test.txt', 'utf-8').split('\n')
+const list_words: string[] = fs.readFileSync('../sgb-words.txt', 'utf-8').split('\n')
 
 // Add Vertex 
-
-for (let word of list_words) {
-   
-    const nodePattern = myGraph.isPattern(word)
-    myGraph.addVertex(word);
-    if (nodePattern) {
-        myGraph.addEdge(word,nodePattern)
-    }
-}
-
-// myGraph.addVertex('0');
-// myGraph.addVertex('1');
-// myGraph.addVertex('2');
-// myGraph.addVertex('3');
-// myGraph.addVertex('4');
-// myGraph.addVertex('5');
-// myGraph.addVertex('6');
-// myGraph.addEdge('3', '1');
-// myGraph.addEdge('3', '4');
-// myGraph.addEdge('4', '2');
-// myGraph.addEdge('4', '5');
-// myGraph.addEdge('1', '2');
-// myGraph.addEdge('1', '0');
-// myGraph.addEdge('0', '2');
-// myGraph.addEdge('6', '5');
+console.log(list_words.slice(0,10))
+// for (let word of list_words) {
+//     const nodePattern = myGraph.isPattern(word)
+//     myGraph.addVertex(word);
+//     if (nodePattern) {
+//         myGraph.addEdge(word,nodePattern)
+//     }
+// }
 
 myGraph.showConnections();
