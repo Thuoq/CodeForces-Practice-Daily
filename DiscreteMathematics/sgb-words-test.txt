@@ -3,6 +3,6 @@ wolds
 golds
 goads
 grads
-grade 
-grape 
+grade
+grape
 graph

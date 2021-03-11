@@ -4,6 +4,8 @@ class GraphUndirected():
         self.numberOfNodes = 0 
         self.adjacentList = {}
         self.vertex_visited = {}
+        self.distant_vertexes = {}
+        self.__Max = 999999
     
     def addVertex(self,node):
         self.adjacentList[node] = []
@@ -27,6 +29,7 @@ class GraphUndirected():
         
         # print(self.adjacentList)
     def is_the_sample_unique_character(self,word1,word2):
+        print(word1,word2)
         temp = 0
         for idx in  range(len(word1)):
             if(word1[idx] != word2[idx]):
@@ -49,6 +52,12 @@ class GraphUndirected():
         for node in allNodes:
             self.vertex_visited[node] = False
         return self.vertex_visited
+    def init_dist_vertexes(self):
+        allNodes = self.get_all_nodes()
+        for node in allNodes:
+            self.distant_vertexes[node] = self.__Max
+
+        return self.distant_vertexes
         
     def dfs(self):
         cc = 0
@@ -67,8 +76,7 @@ class GraphUndirected():
         
     def get_all_nodes(self):
         return list(self.adjacentList.keys())
-    def bfs(self,vertex):
-        pass
+    
     def find_path(self, start_vertex, end_vertex, path=None):
         """ 
         find a path from start_vertex to end_vertex 
@@ -90,3 +98,24 @@ class GraphUndirected():
                 if extended_path:
                     return extended_path
         return None
+
+    def bfs(self, vertex):
+        distance_vertexes = self.init_dist_vertexes()
+        
+        queue = []
+        distance_vertexes[vertex] = 0
+        queue.append(vertex)
+        while queue:
+            # remove the first queue
+            vertex = queue.pop(0) 
+
+            for edge in self.adjacentList[vertex]:
+                if distance_vertexes[edge] == self.__Max:
+                    queue.append(edge)
+                    distance_vertexes[edge] = distance_vertexes[vertex] +1
+
+
+    
+        for edge in self.adjacentList[vertex]:
+            print(distance_vertexes[edge])
+

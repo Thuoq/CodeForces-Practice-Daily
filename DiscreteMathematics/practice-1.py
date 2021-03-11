@@ -8,6 +8,7 @@ from get_words import get_words
 from Graph import GraphUndirected
 
 words = get_words()
+
 graph = GraphUndirected()
 for word in words: 
     nodePattern = graph.isPattern(word)
@@ -18,3 +19,5 @@ for word in words:
 
 print(graph.showConnections())
 graph.dfs()
+
+# graph.bfs('goads')
