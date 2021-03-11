@@ -28,13 +28,12 @@ class GraphUndirected():
         # print(self.adjacentList)
     def is_the_sample_unique_character(self,word1,word2):
         temp = 0
-        for cha1 in word1:
-            if cha1 in word2:
+        for idx in  range(len(word1)):
+            if(word1[idx] != word2[idx]):
                 temp +=1
-                word2 = word2.replace(cha1,'',1)
-                if temp == 4:
-                    return True
-        return False
+            if temp > 1:
+                return False
+        return True
 
     def isPattern(self,node1):
         allNodes = self.get_all_nodes()
@@ -68,7 +67,8 @@ class GraphUndirected():
         
     def get_all_nodes(self):
         return list(self.adjacentList.keys())
-
+    def bfs(self,vertex):
+        pass
     def find_path(self, start_vertex, end_vertex, path=None):
         """ 
         find a path from start_vertex to end_vertex 
