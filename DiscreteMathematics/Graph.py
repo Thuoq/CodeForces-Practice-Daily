@@ -37,7 +37,7 @@ class GraphUndirected():
             if temp > 1:
                 return False
         return True
-
+    
     def isPattern(self,node1):
         allNodes = self.get_all_nodes()
 
