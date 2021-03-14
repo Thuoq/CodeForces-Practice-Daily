@@ -3,9 +3,7 @@ class GraphUndirected():
     def __init__(self):
         self.numberOfNodes = 0 
         self.adjacentList = {}
-        self.vertex_visited = {}
-        self.distant_vertexes = {}
-        self.__Max = 999999
+        self.vertex_visited = {} 
     
     def addVertex(self,node):
         self.adjacentList[node] = []
@@ -13,7 +11,6 @@ class GraphUndirected():
         return self.adjacentList
     
     def addEdge(self,node1, node2):
-        ## undirected Graph
         self.adjacentList[node1].append(node2)
         self.adjacentList[node2].append(node1)
         return self.adjacentList[node1]
@@ -24,12 +21,11 @@ class GraphUndirected():
             nodeConnections = self.adjacentList[node]
             connections = ""
             for vertex in nodeConnections:
-                connections += vertex + " "
-            print(node + "-->" + connections)
+                connections += str(vertex) + " "
+            print(str(node) + "-->" + connections)
         
         # print(self.adjacentList)
     def is_the_sample_unique_character(self,word1,word2):
-        print(word1,word2)
         temp = 0
         for idx in  range(len(word1)):
             if(word1[idx] != word2[idx]):
@@ -52,12 +48,7 @@ class GraphUndirected():
         for node in allNodes:
             self.vertex_visited[node] = False
         return self.vertex_visited
-    def init_dist_vertexes(self):
-        allNodes = self.get_all_nodes()
-        for node in allNodes:
-            self.distant_vertexes[node] = self.__Max
-
-        return self.distant_vertexes
+   
         
     def dfs(self):
         cc = 0
@@ -76,46 +67,23 @@ class GraphUndirected():
         
     def get_all_nodes(self):
         return list(self.adjacentList.keys())
-    
-    def find_path(self, start_vertex, end_vertex, path=None):
-        """ 
-        find a path from start_vertex to end_vertex 
-            in graph 
-        """
-        if path == None:
-            path = []
-        graph = self.adjacentList
-        path = path + [start_vertex]
-        if start_vertex == end_vertex:
-            return path
-        if start_vertex not in graph:
-            return None
-        for vertex in graph[start_vertex]:
-            if vertex not in path:
-                extended_path = self.find_path(vertex,
-                                               end_vertex,
-                                               path)
-                if extended_path:
-                    return extended_path
-        return None
-
-    def bfs(self, vertex):
-        distance_vertexes = self.init_dist_vertexes()
-        
+    def elements_between_two_vertexes(self,vertex_start, vertex_end):
+        # Base case
+        if vertex_start == vertex_end:
+            return []
+        elements_thoughs= []
+        visited = self.init_visited_vertex()
         queue = []
-        distance_vertexes[vertex] = 0
-        queue.append(vertex)
-        while queue:
-            # remove the first queue
-            vertex = queue.pop(0) 
-
-            for edge in self.adjacentList[vertex]:
-                if distance_vertexes[edge] == self.__Max:
-                    queue.append(edge)
-                    distance_vertexes[edge] = distance_vertexes[vertex] +1
-
-
+        visited[vertex_start] = True
+        queue.append(vertex_start)
+        while (len(queue) > 0):
+            vertex = queue.pop(0)
+            for ver in self.adjacentList[vertex]:
+                if ver == vertex_end:
+                    return elements_thoughs
+                if not visited[ver]:
+                    elements_thoughs.append(ver)
+                    visited[ver] = True
+                    queue.append(ver)
     
-        for edge in self.adjacentList[vertex]:
-            print(distance_vertexes[edge])
-
+        return None

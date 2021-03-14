@@ -5,11 +5,13 @@
 import sys
 sys.setrecursionlimit(100000)
 from get_words import get_words
-from Graph import GraphUndirected
+from GraphUndirected import GraphUndirected
 
 words = get_words()
 
 graph = GraphUndirected()
+
+#graph.showConnections()
 for word in words: 
     nodePattern = graph.isPattern(word)
     graph.addVertex(word)
@@ -17,7 +19,10 @@ for word in words:
         for node in nodePattern:
             graph.addEdge(word, node)
 
-print(graph.showConnections())
+print("Số thành phần Liên thông của đồ thị là:")
 graph.dfs()
+for i in range(2):
+    vertex_start = input('Nhập đỉnh bắt đầu từ: ')
+    vertext_end = input('Nhập đỉnh kết thúc bằng từ: ')
+    print(graph.elements_between_two_vertexes(vertex_start, vertext_end))
 
-# graph.bfs('goads')
