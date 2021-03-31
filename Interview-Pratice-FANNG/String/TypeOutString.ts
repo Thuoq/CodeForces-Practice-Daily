@@ -57,4 +57,4 @@ export const goodSolution = (S:string, T:string) => {
     }
     return true;
 }
-console.log(goodSolution('a####z','z'))
+console.log(goodSolution('avc#z','z'))
