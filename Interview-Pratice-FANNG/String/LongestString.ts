@@ -38,8 +38,11 @@ console.log(badSolution()("abcabcbb"))
 // Explain : "abcdefg", [1,2,3,4,56,3,9,2,4]
 // Explian : "|ab| windows " // can me the windows forward backward increase size the windows
 // How Apply : Linked list, array, string
+// abbcd
 export const goodSolution = () => {
     return (s: string): number => {
+        //abbcd
+        //abcabcbb
         if (s.length <= 1) return s.length
         let longest = 0
         let seenChars:any = new Map()
@@ -47,11 +50,12 @@ export const goodSolution = () => {
         for(let pointer = 0 ; pointer < s.length ; pointer++) {
             const currentChar = s[pointer]
             const prevSeenChar = seenChars.get(currentChar)
-            if(prevSeenChar >= left) {
-                left = prevSeenChar +1;
+            if(prevSeenChar >= left) { // 1 > 0
+                left = prevSeenChar +1; // 2
             }
-            seenChars.set(currentChar,pointer);
+            seenChars.set(currentChar,pointer); //{a:0,b:1}
             longest = Math.max(longest,pointer-left +1)
+            // longest: 1  // 2
         }
 
         return longest
