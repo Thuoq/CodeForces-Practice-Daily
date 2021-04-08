@@ -1,0 +1,2 @@
+### 12.1 Giải pháp từng phần và toàn bộ
+Backtracking là một chiến lược chung để tìm kiếm giải pháp cho các vấn đề tính toán trong một tập hợp hữu hạn các khả năng. Các giải pháp này là tập hợp các mục rời rạc. Do đó, về mặt kỹ thuật, chúng tôi nói rằng backtracking là một chiến lược tìm kiếm các giải pháp trong một “không gian trạng thái rời rạc”. Nó cũng là một phương pháp bạo lực theo nghĩa là việc tìm kiếm là toàn bộ. Nói cách khác, nếu một giải pháp tồn tại, một thuật toán quay lui được đảm bảo sẽ tìm ra nó
