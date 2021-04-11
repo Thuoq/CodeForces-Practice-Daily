@@ -59,6 +59,7 @@
         "optional": "cpp",
         "sstream": "cpp",
         "unordered_map": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "set": "cpp"
     }
 }
