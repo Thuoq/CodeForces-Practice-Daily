@@ -200,6 +200,30 @@ class BinarySearchTree {
         list.push(node.value)
         return list;
     }
+    findListLevelOrder() {
+        let currentNode = this.root;
+        let queue = []; // FIFO
+        queue.push(currentNode) 
+        // Keep track how when added
+        let list_numbers_level = []
+        while (queue.length > 0) {
+            let length = queue.length,count = 0
+            let currentLevelValues = []
+            while (count < length ) {
+                currentNode = queue.shift()
+                currentLevelValues.push(currentNode.value)
+                if (currentNode.left) {
+                    queue.push(currentNode.left)
+                }
+                if (currentNode.right) {
+                    queue.push(currentNode.right)
+                }
+                count++;
+            }
+            list_numbers_level.push(currentLevelValues)
+        }
+        console.log(list_numbers_level)
+    }
 }
 
 const tree = new BinarySearchTree();
@@ -211,7 +235,7 @@ tree.insert(170)
 tree.insert(15)
 tree.insert(1)
 // tree.remove(170)
-tree.BFS()
+tree.findListLevelOrder()
 console.log(tree.DFSInOrder())
 console.log(tree.DFSPreOrder())
 console.log(tree.DFSPostOrder())
