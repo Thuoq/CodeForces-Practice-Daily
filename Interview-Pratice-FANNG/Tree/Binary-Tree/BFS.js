@@ -224,6 +224,32 @@ class BinarySearchTree {
         }
         console.log(list_numbers_level)
     }
+    rightSideTree() {
+        let currentNode = this.root;
+        let queue = []; // FIFO
+        queue.push(currentNode)
+        // Keep track how when added
+        let right_side_node = []
+        while (queue.length > 0) {
+            let length = queue.length,
+                count = 0
+            while (count < length) {
+                currentNode = queue.shift()
+                if (currentNode.left) {
+                    queue.push(currentNode.left)
+                }
+                if (currentNode.right) {
+                    queue.push(currentNode.right)
+                }
+                if(count == length - 1) {
+                    right_side_node.push(currentNode.value)
+                }
+                count++;
+            }
+            
+        }
+        console.log(right_side_node)
+    }
 }
 
 const tree = new BinarySearchTree();
@@ -233,12 +259,14 @@ tree.insert(6)
 tree.insert(20)
 tree.insert(170)
 tree.insert(15)
+tree.insert(29)
 tree.insert(1)
 // tree.remove(170)
 tree.findListLevelOrder()
-console.log(tree.DFSInOrder())
-console.log(tree.DFSPreOrder())
-console.log(tree.DFSPostOrder())
+// console.log(tree.DFSInOrder())
+// console.log(tree.DFSPreOrder())
+// console.log(tree.DFSPostOrder())
+tree.rightSideTree()
 // JSON.stringify(traverse(tree.root))
 
 // //     9
