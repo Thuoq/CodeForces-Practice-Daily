@@ -43,4 +43,21 @@ Từ `(1)` ta có thể suy ra:
 
 `     (n-1)! x n , n >0`
 
+Biểu thức đệ quy có rất nhiều trong toán học, chúng thường được sử dụng để mô tả các thuộc tính của hàm. BIểu thức đệ quy sau chỉ ra rằng đạo hàm của một tổng là tổng từng thành phần của nó 
+## 1.2 Problem Decomposition (Giải quyết vấn đề )
 
+Nói chung, Khi lập trình và nghĩ về đệ quy , main task của bạn sẽ bao gồng cái gì đệ quy và , func, hàn. Trong khi bước đầu tiên thường liên quan đến việc thiết lập **base case** , thách thúc chính bao gồm việc mô tả **recursive case**
+
+**Recursive case** phải hiểu các định nghĩa , vấn đề, quy nạp. 
+
+
+                            PROBLEM 
+ Những vấn đề tương tự|              |  Các vấn đề khác
+                  Giả quyết và combine
+
+                            SOLUTION
+## RECURSIVE CODE 
+
+Để sử dụng RECURSION khi bạn design algorithms, điều quan trọng là phải học cách phân tách các vấn đề thành một vấn đề nhỏ hơn tương tự và xác định các methods để đệ quy dựa vào cách quy nạp 
+
+Sau khi chúng được chỉ định, việc chuyển đổi các định nghĩa thành mã khá đơn giản, đặc biệt là khi làm việc với các kiểu dữ liệu cơ bản như số nguyên, số thực, ký tự hoặc giá trị Boolean
