@@ -5,7 +5,7 @@ using namespace std;
 int main()
 {
     int n;
-    int idx = 0;
+  
     int count = 1;
     string last_cha;
     cin >> n;
@@ -21,7 +21,7 @@ int main()
             }
         }
         last_cha = cha;
-        idx++;
+     
         n--;
     }
     cout << count;
