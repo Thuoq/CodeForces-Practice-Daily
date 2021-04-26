@@ -158,7 +158,6 @@ class BinarySearchTree {
             }
         }
         console.log(list_node_though)
-
     }
     DFSInOrder() {
         return this.traverseInOrder(this.root, [])
@@ -212,10 +211,10 @@ tree.insert(170)
 tree.insert(15)
 tree.insert(1)
 // tree.remove(170)
-tree.BFS()
-console.log(tree.DFSInOrder())
+// tree.BFS()
+// console.log(tree.DFSInOrder())
 console.log(tree.DFSPreOrder())
-console.log(tree.DFSPostOrder())
+// console.log(tree.DFSPostOrder())
 // JSON.stringify(traverse(tree.root))
 
 // //     9
