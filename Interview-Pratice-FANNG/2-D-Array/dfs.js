@@ -8,17 +8,24 @@
  */
 
 const data = require('./data');
+const directions = require('./directions')
 
-const directions = [
-    [-1,0], // Up
-    [0,1], // RIGHT
-    [1,0], // DOWN
-    [0,-1] // LEFT
-]
-const DFSTwoArray  = (matrix) => {
-    const explore = new Array(matrix.length).fill(0).map(el => new Array(matrix[0].length).fill(false))
+
+function dfs(matrix,explore,row,column,values) {
     
-    console.warn(explore)
+    // Check if two max 
+    if(row < 0   || column < 0  || row >= matrix.length || column >= matrix[0].length || explore[row][column]) return;
+    values.push(matrix[row][column])
+    explore[row][column] = true;
+    for(let i = 0 ; i < directions.length ; i++) {
+        
+        dfs(matrix, explore, row + directions[i][0], column + directions[i][1], values)
+    }
 }
-DFSTwoArray(data);
-
+const traversalDFs  = (matrix) => {
+    const explore = new Array(matrix.length).fill(0).map(el => new Array(matrix[0].length).fill(false))
+    const values = []
+    dfs(matrix,explore, 0, 0, values)
+    return values
+}
+console.log(traversalDFs(data))
