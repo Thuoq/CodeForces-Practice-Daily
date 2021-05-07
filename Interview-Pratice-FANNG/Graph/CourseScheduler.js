@@ -3,7 +3,7 @@
  * @param {number[][]} prerequisites
  * @return {boolean}
  */
-const p = [
+var p = [
     [1, 0],
     [2, 1],
     [2, 5],
@@ -95,40 +95,90 @@ var canFinish = function (numCourses, prerequisites) {
 var canFinishTopological = function (numCourses, prerequisites) {
     const adjList = new Array(numCourses).fill(0).map(() => []);
     let inDegree = new Array(numCourses).fill(0).map(() => 0);
+    let sum = 0;
+
     for (let i = 0; i < prerequisites.length; i++) {
         let connect = prerequisites[i];
         inDegree[connect[0]] ++;
+        sum ++;
         adjList[prerequisites[i][1]].push(prerequisites[i][0])
     }
-    console.log(adjList)
-    console.log(inDegree)
-    while(inDegree.length) {
+    while (sum) {
         // find the number inDegree = 0
-        position=Infinity;
+        let position=Infinity;
         for(let i  = 0 ; i < inDegree.length ; i++) {
             if (inDegree[i] == 0) {
                 position = i;
-                
             }  
         }
-        console.log('Here Position',position)
+
      
         if(position == Infinity){
             return false
         }
+        inDegree[position] --;
         for(let i = 0 ; i < adjList[position].length; i++) {
-            // console.log(inDegree[adjList[position][i]])
-            // console.log(adjList[position][i])
-            if (inDegree[adjList[position][i]] !== 0) {
-                inDegree[adjList[position][i]] --;
-
-            }
+            inDegree[adjList[position][i]] --;
+            sum--;
         }
-        console.log("InDegree sau khi tru",inDegree)
-        // inDegree.splice(position,1)
-        console.log('InDegree sau khi Splice',inDegree)
+        
+       
+      
     }
     return true
     
 };
+var p = [
+    [1, 0],
+    [2, 1],
+    [2, 5],
+    [0, 3],
+    [4, 3],
+    [3, 5],
+    [4, 5]
+]
 console.log(canFinishTopological(6, p))
+ const p = [
+     [1, 0],
+     [2, 1],
+     [2, 5],
+     [0, 3],
+     [4, 3],
+     [3, 5],
+     [4, 5]
+ ]
+
+var canFinish = function (n, prerequisites) {
+     const inDegree = new Array(n).fill(0);
+
+     for (let i = 0; i < prerequisites.length; i++) {
+         inDegree[prerequisites[i][0]]++;
+     }
+
+     const stack = [];
+
+     for (let i = 0; i < inDegree.length; i++) {
+         if (inDegree[i] === 0) {
+             stack.push(i);
+         }
+     }
+
+     let count = 0;
+
+     while (stack.length) {
+         const current = stack.pop();
+         count++;
+
+         for (let i = 0; i < prerequisites.length; i++) {
+             const pair = prerequisites[i];
+             if (pair[1] === current) {
+                 inDegree[pair[0]]--;
+                 if (inDegree[pair[0]] === 0) {
+                     stack.push(pair[0]);
+                 }
+             }
+         }
+     }
+
+     return count === n;
+ };
