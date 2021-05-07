@@ -147,7 +147,34 @@ console.log(canFinishTopological(6, p))
      [3, 5],
      [4, 5]
  ]
-
+var betterSolution = (numCourses, prerequisites) =>  {
+    const adjList = new Array(numCourses).fill(0).map(() => []);
+    let inDegree = new Array(numCourses).fill(0);
+    for(let i = 0 ; i < prerequisites.length ; i ++) {
+        let connect = prerequisites[i];
+        inDegree[connect[0]]++;
+        adjList[prerequisites[i][1]].push(prerequisites[i][0])
+    }
+    let stack = [];
+    for (let i = 0; i < inDegree.length; i++) {
+        if(inDegree[i] === 0) {
+            stack.push(i)
+        }
+    }
+    let count = 0;
+    while(stack.length) {
+        let current = stack.pop();
+        count ++;
+        let connect = adjList[current];
+        for (let i = 0; i <  connect.length; i++) {
+            inDegree[connect[i]] --;
+            if (inDegree[connect[i]] === 0) {
+                stack.push(connect[i])
+            }
+        }
+    }
+    return count == numCourses
+}
 var canFinish = function (n, prerequisites) {
      const inDegree = new Array(n).fill(0);
 
