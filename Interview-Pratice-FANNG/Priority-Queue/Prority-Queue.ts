@@ -47,8 +47,9 @@ class PriorityQueue{
         }
     }
     pop() {
-        if(this.isEmpty()) return null;
-        if(this.size() === 1) return [];
+        if (this.size() > 1) {
+          this.swap(0, this.size() - 1);
+        }
         this.swap(this.maxHeap[0],this.maxHeap[this.size()-1]);
         const poppedValue = this.maxHeap.pop()
         this.siftDown();
