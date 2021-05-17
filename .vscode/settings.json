@@ -63,6 +63,7 @@
         "set": "cpp",
         "__tree": "cpp",
         "map": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "queue": "cpp"
     }
 }
