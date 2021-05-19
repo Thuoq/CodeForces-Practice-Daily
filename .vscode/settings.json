@@ -65,6 +65,7 @@
         "map": "cpp",
         "valarray": "cpp",
         "queue": "cpp",
-        "deque": "cpp"
+        "deque": "cpp",
+        "stack": "cpp"
     }
 }
