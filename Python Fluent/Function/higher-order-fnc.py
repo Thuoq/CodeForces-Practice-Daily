@@ -98,3 +98,60 @@ def tag(name, *content,cls=None,**attrs):
 print(tag('br'))
 print(tag('p','Hello'))
 print(tag('p','hello',id=33))
+# Implementing a Simple Decorator
+
+# Là 1 decorator rằng mỗi giờ nó chạy của decorator func và in ra những thời gian 
+import functools
+import time
+def clock(fnc):
+    def clocked(*args):
+        t0 = time.perf_counter()
+        result = fnc(*args)
+        eslaped = time.perf_counter() - t0
+        name = fnc.__name__
+        arg_str = ''.join(repr(arg) for arg in args)
+        print('[%0.8fs] %s(%s) -> %r' % (eslaped, name, arg_str, result))
+        return result   
+    return clocked
+# from clockdeco import clock
+@clock
+def snooze(seconds):
+    time.sleep(seconds)
+@clock
+def factorial(n):
+    return 1 if n < 2 else n*factorial(n-1)
+
+@functools.lru_cache()
+@clock
+def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+memo = [0 for _ in range(10000)]
+@clock
+def fibonaci_memo(n):
+    if n <= 1 :
+        return n
+    if memo[n] == 0:
+        memo[n] = fibonacci(n-1) + fibonacci(n-2)
+    return memo[n]
+# if __name__=='__main__':
+#     # print('*' * 40, 'Calling snooze(.123)')
+#     # snooze(.123)
+#     # print('*' * 40, 'Calling factorial(6)')
+#     # print('6! =', factorial(10))
+#     print(fibonacci(200))
+#     # print("=============")
+#     # print(fibonaci_memo(200))
+
+#STACK DECORATORED 
+
+#  Khi applied two decorator @d1 , @d2 applied for f order 
+# f = d1(d2(f))
+# @d1
+# @d2
+# def f():
+#   print('f)
+# f = d1(d2(f))
+
+#Parameterized Decorators
