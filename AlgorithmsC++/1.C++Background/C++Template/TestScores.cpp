@@ -9,7 +9,7 @@ TestScores<T>::TestScores(int size) {
     this->size = size;
 }
 template<class T>
-T TestScores<T>::average() {
+double TestScores<T>::average() {
     T sum = 0;
     for(int i = 0 ;i < this->size ; i ++) {
         sum += this->scores[i];
