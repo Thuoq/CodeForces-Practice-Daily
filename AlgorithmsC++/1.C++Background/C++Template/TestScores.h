@@ -1,9 +1,15 @@
-#include<iostream>
-#include"TestScores.h"
-using namespace std;
-int main() {
-    TestScores<int> score_Int(3);
-    score_Int.input();
-    cout << "Average is " << endl;
-    cout << score_Int.average();
-}
+#ifndef TESTSCORES_H
+#define TESTSCORES_H
+template<class T>
+class TestScores {
+    private: 
+        int size;
+        T *scores;
+    public:
+        TestScores();
+        TestScores(int);
+        void input();
+        double average();
+};
+#include "TestScores.cpp"
+#endif
