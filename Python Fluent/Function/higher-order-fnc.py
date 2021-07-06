@@ -155,3 +155,18 @@ def fibonaci_memo(n):
 # f = d1(d2(f))
 
 #Parameterized Decorators
+# Khi có decorators trong source code, Python lấy the dcorated fnc và truyền cho nó như 1 argument. Vậy làm thế nào để bạn làm 1 decorator chấp nhận những argument khác. Câu trả lời là. làm 1 factory decorators và lấy các đối số và trả về decorators.và applined function với decorators nào cùng xem 1 ví dụ: 
+
+registry = []
+def register(fnc):
+    print("running register (%s)" %fnc)
+    registry.append(fnc)
+    return fnc
+
+
+@register
+def f1():
+    print("running f1()")
+print("running main()")
+print("Registry -> ",registry)
+f1()
