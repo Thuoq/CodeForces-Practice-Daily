@@ -14,7 +14,7 @@ double TestScores<T>::average() {
     for(int i = 0 ;i < this->size ; i ++) {
         sum += this->scores[i];
     }
-    return (T)sum/this->size;
+    return sum/this->size;
 }
 template<class T>
 void  TestScores<T>::input() {
