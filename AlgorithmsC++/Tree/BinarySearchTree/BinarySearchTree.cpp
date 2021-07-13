@@ -14,28 +14,50 @@ BinarySearchTree<ItemType>::BinarySearchTree(ItemType x) {
 }
 template<typename ItemType>
 void BinarySearchTree<ItemType>::insert(const ItemType &x) {
-    BinaryNode *node  = new BinaryNode(x,nullptr,nullptr);
-    this->insert(x,node);
+
+    this->insert(x,this->root);
+    
 }
 template<typename ItemType>
 void BinarySearchTree<ItemType>::insert(const ItemType &x,BinaryNode * &t) {
-    cout << "Hello World" << endl;
+    if(t == nullptr) {
+        t = new BinaryNode(x,nullptr,nullptr);
+    }else if (x > t->element) {
+        this->insert(x,t->right);
+    }else if (x < t->element) {
+        this->insert(x,t->left);
+    }else {
+    }
 }
 
 template<typename ItemType>
 void BinarySearchTree<ItemType>::remove(const ItemType &x){
-    BinaryNode *node  = new BinaryNode(x,nullptr,nullptr);
-    this->remove(x,node);
+   
+    this->remove(x,this->root);
 }
 template<typename ItemType>
 void BinarySearchTree<ItemType>::remove(const ItemType &x,BinaryNode * &t){
-    cout << "Hello From Remove" << endl;
+    cout << "Hello From Remove" << x  << t->element << endl;
 }
 template<typename ItemType>
-bool BinarySearchTree<ItemType>::contains(const ItemType &x,BinaryNode * &t) {
-
+bool BinarySearchTree<ItemType>::contains(const ItemType &x,BinaryNode * &t) const {
+    if(t == nullptr) {
+        return false;
+    }else if (x > t->element) {
+        return this->contains(x,t->right);
+    }else if (x < t->element) {
+        return this->contains(x,t->left);
+    }else {
+        return true;
+    }
 }
-bool BinarySearchTree<ItemType>::contains(const ItemType &x) {
+template<typename ItemType>
+bool BinarySearchTree<ItemType>::contains(const ItemType &x) const {
     return this->contains(x,this->root);
+}
+  
+template<typename ItemType>
+ItemType BinarySearchTree<ItemType>::findMin() {
+    return this->findMin(this->root)->element;
 }
 #endif /* BST_CPP_ */
