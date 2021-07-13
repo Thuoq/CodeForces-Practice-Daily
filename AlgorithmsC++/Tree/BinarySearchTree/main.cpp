@@ -3,6 +3,6 @@
 
 
 int main() {
-    BinarySearchTree<int> a(10);
-   
+    BinarySearchTree<int> BST(10);
+    BST.insert(10);
 }

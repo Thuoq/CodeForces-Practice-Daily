@@ -15,7 +15,9 @@ class BinarySearchTree {
             };
         };
         BinaryNode *root;
-
+        void insert(const ItemType &x, BinaryNode * &t);
+        void remove(const ItemType &x, BinaryNode * &t);
+        bool contains(const ItemType &x,BinaryNode * &t);
     public: 
         BinarySearchTree();
         BinarySearchTree(ItemType);
