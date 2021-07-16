@@ -22,7 +22,7 @@ int main() {
     }
     sort(student,student+n);
     int count = 1;
-    int temp = n /2;
+    int temp = n /3;
     int row = 0;
     while (temp)
     {
