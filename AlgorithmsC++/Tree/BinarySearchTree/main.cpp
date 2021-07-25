@@ -5,5 +5,4 @@
 int main() {
     BinarySearchTree<int> BST(10);
     BST.insert(100);
-    cout << BST.findMin();
 }
