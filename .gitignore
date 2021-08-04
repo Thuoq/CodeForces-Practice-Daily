@@ -3,3 +3,4 @@ DiscreteMathematics/__pycache__
 *.out
 *.txt
 __pycache__/
+*test.py
