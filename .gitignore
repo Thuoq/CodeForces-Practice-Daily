@@ -1,6 +1,11 @@
+!.cpp
+!.py
+!.js
+!.ts
 /nodes_module
 DiscreteMathematics/__pycache__
 *.out
 *.txt
 __pycache__/
 *test.py
+
