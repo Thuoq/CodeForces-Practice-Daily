@@ -3,7 +3,6 @@
  *                   9
  *               6       12
  *             1   4   34  45
- * 
  * Traversal : Left to right by level: 9 -> 6 -> 12 -> 1 -> 4 -> 34 -> 45
  * 
  */
