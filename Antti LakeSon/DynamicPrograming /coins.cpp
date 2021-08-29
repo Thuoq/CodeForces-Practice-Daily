@@ -1,7 +1,12 @@
 #include<bits/stdc++.h>
 using namespace std;
+
 #define clr(x) memset(x, 0, sizeof(x));
+#define fo(i, n) for(i=0;i<n;i++)
+#define deba(i, a, n) fo(i, n){cout << a[i] << " ";}
 #define INF 999; 
+#define M 1000000000 + 7;
+
 int min(int x, int y) {
     return x < y ? x : y;
 }
@@ -76,7 +81,6 @@ int findOptimizer(int arr[],int n , int targetNum) {
     for(int i = 1 ;i <= targetNum;i++) { 
         values[i] = INF;
         for(int idxCoins = 0 ; idxCoins < n ; idxCoins ++) {
-            cout << values[i-arr[idxCoins]]+1 << " " << values[i] << endl;
             if(i - arr[idxCoins] >= 0 and values[i-arr[idxCoins]] + 1 <values[i]) {
                 values[i] = values[i-arr[idxCoins]] + 1;
                 first[i] = arr[idxCoins];
@@ -89,6 +93,23 @@ int findOptimizer(int arr[],int n , int targetNum) {
         targetNum-=first[targetNum];
     }
 
+}
+void countSolution(int arr[] , int n , int targetNum) {
+    int counts[targetNum];
+    clr(counts);
+    // because this is base case 
+    counts[0] = 1;
+    for(int i = 1 ; i<= targetNum ; i ++) {
+        for(int idxCoins= 0 ; idxCoins < n ; idxCoins ++ ) {
+            if(i - arr[idxCoins] >= 0) {
+                counts[i] += counts[i-arr[idxCoins]];
+                counts[i] %= M;
+            }
+        }
+    }
+
+    int k;
+    deba(k,counts,targetNum);
 }
 void solution(int arr[], int n,int targetNum) {
     
@@ -103,6 +124,8 @@ void solution(int arr[], int n,int targetNum) {
     //cout << minmumCoinsRecursive(arr,n , targetNum) << endl;
     cout << minmumCoinsIterative(arr,n,targetNum) << endl;
     findOptimizer(arr,n,targetNum);
+    cout << " THIS IS COUNT THE NUMBER OF PROBLEM " << endl;
+    countSolution(arr,n,targetNum);
 }   
 int main() {
     freopen("input.txt","r",stdin);
