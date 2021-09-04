@@ -23,7 +23,7 @@ void clearIthBit(int &n , int i) {
 }
 void updateIthBit(int &n, int i,int val) {
     clearIthBit(n,i);
-    int mask = (v << i);
+    int mask = (val << i);
     n = n | mask;
     
 }
