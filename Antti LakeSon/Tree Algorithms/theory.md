@@ -16,4 +16,4 @@
 Có 2 cách để tính diameter 1 là cách dùng dynamic hoặc dùng dfs
 
 ### All longest paths 
->*Định nghĩa*
+>*Định nghĩa*: tính mỗi node trong tree  the maximun path taị node
