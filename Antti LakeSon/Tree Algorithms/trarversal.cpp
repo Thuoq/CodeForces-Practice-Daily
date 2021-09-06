@@ -1,4 +1,4 @@
-#include "tree.h"
+#include "TreeUndirected.h"
 
 int main() {
     TreeUndirected tree(9);

@@ -52,4 +52,13 @@ class TreeUndirected {
                 cout << this->count[i] << " ";
             }
         }
+        /** All longest path
+         * Finding the longest path from graph
+        */
+        void findLongestPath() {
+            this->countTree(1,0);
+            auto x= max_element(this->count+1,this->count+this->n) ;
+            cout << distance(this->count+1,max_element(this->count+1,this->count+this->n)) << endl;
+            this->checkCount();
+        }
 };
