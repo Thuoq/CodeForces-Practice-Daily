@@ -12,6 +12,7 @@ using namespace std;
 #define all(x) x.begin(), x.end()
 #define clr(x) memset(x, 0, sizeof(x))
 #define sortall(x) sort(all(x))
+typedef long long int ll_i;
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pl;
 typedef vector<int> vi;

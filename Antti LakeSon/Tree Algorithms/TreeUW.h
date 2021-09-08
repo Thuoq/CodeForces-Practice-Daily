@@ -8,6 +8,7 @@ class TreeUndirectedWeight {
     private: 
         int n;
         vi_p; *adj;
+        vi distance;
     public:
         TreeUndirectedWeight(int n ) {
             this->n  = n;
@@ -19,14 +20,14 @@ class TreeUndirectedWeight {
          * @param w is weight from a to b
         */
         addEdges(int a, int b, int w) {
-            this->adj[a].push_back({make_pair(b,w)});
-            this->adj[b].push_back({make_pair(a,w)});       
+            this->adj[a].push_back({b,w});
+            this->adj[b].push_back({a,w});       
         }
         /** BFS
          * 
         */
         void bfs(int s ) {
-
+            
         }
 
 };
