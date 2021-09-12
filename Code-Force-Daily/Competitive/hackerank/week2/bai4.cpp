@@ -16,7 +16,7 @@ void solution(v_i graph[] , int n,bool visited[]) {
                 count.push_back(j);
             } while (graph[j][0] != tmp);
             for(auto ver : count) {
-                mp[ver] = count.size() == 1 ? 0 : count.size();
+                mp[ver] = count.size();
             }
             
         }
