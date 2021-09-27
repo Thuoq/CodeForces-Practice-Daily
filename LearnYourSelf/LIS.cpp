@@ -12,11 +12,12 @@ int LIS(string s) {
             }
         }
     }
-    for(auto &el :dp) {
-        cout << el << " ";
-    }
-    cout << "\n";
-    return 0;
+    // for(auto &el :dp) {
+    //     cout << el << " ";
+    // }
+    // cout << "\n";
+
+    return *max_element(dp.begin(), dp.end());
 }
 int main() {
     string s = "CACBOHYDRAT";
