@@ -36,9 +36,6 @@ void search(int k ) {
     }else {
        int i;
        deba(i,subset,subset.size());
-       if(check(subset)) {
-          _min = min(subset.size(),min);
-       }
        cout << endl;
     }
 }
