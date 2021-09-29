@@ -28,7 +28,7 @@ vi subset;
 // search(k=1)
 // search(k=2)
 void search(int k ) {
-    if(k!= n) {
+    if(k!= n+1) {
         search(k+1);
         subset.push_back(k);
         search(k+1);
@@ -36,12 +36,18 @@ void search(int k ) {
     }else {
        int i;
        deba(i,subset,subset.size());
+       if(check(subset)) {
+          _min = min(subset.size(),min);
+       }
        cout << endl;
     }
 }
+void solution() {
+    search(1);
+}
 int main() {
-    cin >> n;
-    search(0);
+    cin >> n; 
+    search(1);
     // int i;
     
 
