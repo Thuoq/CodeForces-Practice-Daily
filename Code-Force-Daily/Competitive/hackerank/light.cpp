@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+#define FAST_IO ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 typedef vector<int> v_i;
 typedef vector<v_i> v_v_i;
 int MIN  = INT_MAX;
@@ -53,6 +54,7 @@ void print(v_v_i matrix) {
     }
 }
 int main() {
+    FAST_IO
     freopen("input.txt","r",stdin);
     freopen("output.txt","w",stdout);
    
