@@ -35,7 +35,6 @@ def M_d_fnc(E_r):
       if k !=y:
         if k.issubset(y):
           k = y
-          break
     if k not in A:
       A.append(k)
   return A
@@ -57,11 +56,12 @@ def main() :
           for _,val in enumerate(R):
               if R[val][i] == R[val][j]:
                   tmp.add(val)
-          if tmp not in E:
+          if tmp not in E and len(tmp):
               E.append(tmp)
-  print(E)
+  # print(E)
+  # print(M_d_fnc(E_r=E))
   M_d = set.intersection(*M_d_fnc(E_r=E))
-  print(set(R.keys()) - M_d)
+  print(set(R.keys()) - M_d-set('d'))
 
 if __name__ == '__main__':
   main()
