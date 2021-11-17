@@ -56,7 +56,7 @@ def main() :
           for _,val in enumerate(R):
               if R[val][i] == R[val][j]:
                   tmp.add(val)
-          if tmp not in E and len(tmp):
+          if tmp not in E :
               E.append(tmp)
   # print(E)
   # print(M_d_fnc(E_r=E))
