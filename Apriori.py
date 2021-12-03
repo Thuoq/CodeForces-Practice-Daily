@@ -36,7 +36,7 @@ def main() :
     # STEP 1
     for item in _items:
         _sups = sup(item,transactions)/len(transactions)
-        if _sups > _min_sups:
+        if _sups >= _min_sups:
             A.append(item)
             X[0].append({item})
     # STEP 2

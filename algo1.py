@@ -59,8 +59,10 @@ def main() :
           if tmp not in E :
               E.append(tmp)
   # print(E)
-  # print(M_d_fnc(E_r=E))
+  print(M_d_fnc(E_r=E))
   M_d = set.intersection(*M_d_fnc(E_r=E))
+  print(f"This is M_d")
+  print(M_d)
   print(set(R.keys()) - M_d-set('d'))
 
 if __name__ == '__main__':
