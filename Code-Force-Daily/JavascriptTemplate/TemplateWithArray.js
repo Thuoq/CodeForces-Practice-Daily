@@ -14,7 +14,6 @@ process.stdin.on('end', _ => {
     inputString = inputString.trim().split('\n').map(string => {
         return string.trim();
     });
-
     main();
 });
 
@@ -35,6 +34,6 @@ function getSecondLargest(nums) {
 function main() {
     const n = +(readLine());
     const nums = readLine().split(' ').map(Number);
-
+    console.log(nums)
     console.log(getSecondLargest(nums));
 }

@@ -6,3 +6,4 @@ __pycache__/
 *test.py
 ez.cpp
 ez.py
+.idea
