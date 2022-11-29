@@ -1,4 +1,5 @@
-/nodes_module
+nodes_module/
+node_modules
 DiscreteMathematics/__pycache__
 *.out
 *.txt
