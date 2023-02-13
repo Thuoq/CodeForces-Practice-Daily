@@ -5,7 +5,7 @@ const DICT = {
     "-": "2",
   },
 };
-function solve(s: string): string {
+export function solve(s: string): string {
   let result = "";
   let index = 0;
   while (index < s.length) {
